@@ -1,0 +1,3 @@
+Capstone SpaceX Falcon 9 Landing Prediction
+
+This is a classification project to predic if the rocket lands successfuly or not.

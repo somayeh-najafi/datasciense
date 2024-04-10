@@ -1,0 +1,1 @@
+In the Pathrise project, we want to predict if the applicant can find a job or not, and how many days it takes to get placed. 
