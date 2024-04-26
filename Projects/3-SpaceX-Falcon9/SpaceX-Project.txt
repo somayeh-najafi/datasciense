@@ -1,3 +1,4 @@
 Capstone SpaceX Falcon 9 Landing Prediction
 
-This is a classification project to predic if the rocket lands successfuly or not.
+ML Project: Classificatin : Used Machine Learning Models:  Logistic Regression, KNN, Decision Tree, RandomForest, Support vector Machine
+This is a classification project to predict if the rocket lands successfuly or not.

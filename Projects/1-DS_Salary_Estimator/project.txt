@@ -1,1 +1,2 @@
+Machine Learning Models: Linear Regression
 This is a project for estimating the salary of data science job in different states of the USA.
