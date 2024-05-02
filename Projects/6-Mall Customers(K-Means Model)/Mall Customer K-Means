@@ -1,0 +1,4 @@
+Project: Mall Customer Segmentation (K-means project)
+I will be performing customer segmentation using the customer data in [Mall_Customers.csv]
+
+Customer/Market Segmentation is "the activity of dividing a broad consumer or business market... into sub-groups of consumers (known as segments) based on some type of shared characteristics". In this case I will have a consumer market of mall customers and I will be attempting to divide this market based on shared characteristics such as age and income.
