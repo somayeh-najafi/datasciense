@@ -1,0 +1,2 @@
+This is a Clustering project using K-Means model on Facebook stock price from 1017 - 2022.
+PCA is used to reduce the dimension and then K-Means model to cluster data.
