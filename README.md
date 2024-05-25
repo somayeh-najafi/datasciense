@@ -1,10 +1,10 @@
-This repository contains all the data projects I have worked.
+This repository contains all the data projects I have worked. (ML: Machine Learning, DV: Data Visualization)
 1. Data Science jobs salary estimator (ML)
-2. Pathrise project (VS)(ML)
+2. Pathrise project (DV)(ML)
 3. SpaceX capstone project (ML)
-4. Social Media Stocks (VS)
-5. US Election 2016 Result Map (VS)
+4. Social Media Stocks (DV)
+5. US Election 2016 Result Map (DV)
 6. Mall Customers (ML)(K-Means)
 7. Meta Stock (ML) (K-Means, PCA)
-8. Regulatory Intelligence Solution Prototype (Multi-class classification)
+8. Regulatory Intelligence Solution Prototype (ML) (Multi-class classification)
 
