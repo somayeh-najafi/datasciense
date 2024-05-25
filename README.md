@@ -6,5 +6,5 @@ This repository contains all the data projects I have worked. (ML: Machine Learn
 5. US Election 2016 Result Map (DV)
 6. Mall Customers (ML)(K-Means)
 7. Meta Stock (ML) (K-Means, PCA)
-8. Regulatory Intelligence Solution Prototype (ML) (Multi-class classification)
+8. Regulatory Intelligence Solution Prototype (DV) (ML) (Multi-class classification)
 
