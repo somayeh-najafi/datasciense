@@ -6,5 +6,5 @@ This repository contains all the data projects I have worked.
 5. US Election 2016 Result Map (VS)
 6. Mall Customers (ML)(K-Means)
 7. Meta Stock (ML) (K-Means, PCA)
-8. Regulatory Intelligence Solution Prototype
+8. Regulatory Intelligence Solution Prototype (Multi-class classification)
 
