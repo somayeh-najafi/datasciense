@@ -5,7 +5,7 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import seaborn as sns
-from sklearn.preprocessing import MinMaxScaler
+
 
 #Streamlit Config
 st.set_page_config(page_title='Regulatory Dashboard!',page_icon=":bar_chart:",layout='wide')
