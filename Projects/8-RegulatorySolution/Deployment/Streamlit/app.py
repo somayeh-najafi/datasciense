@@ -135,7 +135,7 @@ with col1:
                  color='score', hover_name='entity', hover_data={'entity': False, 'score': True})
                 # Update layout for better visualization
                 fig3.update_layout(
-                        title_x=0.3,title_font_size=24,
+                        title_x=0.25,title_font_size=24,
                         xaxis_title='Risk Score',
                         width=800,
                         height=500,
