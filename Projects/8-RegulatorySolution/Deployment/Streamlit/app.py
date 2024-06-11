@@ -12,7 +12,6 @@ st.set_page_config(page_title='Regulatory Dashboard!',page_icon=":bar_chart:",la
 
 #importing model
 model = pickle.load(open('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V2.pkl','rb'))
-#model = joblib.load('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V2.pkl')
 
 #Encoding Function
 def encoding(item):
@@ -136,7 +135,7 @@ with col1:
                  color='score', hover_name='entity', hover_data={'entity': False, 'score': True})
                 # Update layout for better visualization
                 fig3.update_layout(
-                        title_x=0.35,title_font_size=24,
+                        title_x=0.3,title_font_size=24,
                         xaxis_title='Risk Score',
                         width=800,
                         height=500,
