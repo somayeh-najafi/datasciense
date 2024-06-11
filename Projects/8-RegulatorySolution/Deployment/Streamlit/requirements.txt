@@ -2,3 +2,4 @@ joblib
 plotly
 scikit-learn
 seaborn
+pickle
