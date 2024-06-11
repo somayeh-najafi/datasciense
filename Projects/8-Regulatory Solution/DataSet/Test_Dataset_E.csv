@@ -1,0 +1,11 @@
+entity,annual_clients,infraction_type,infraction_timeline,public_complaints,sentiment_analysis,inspection_result
+E3098,923,Major,Within past 1-3 years,Major,Flagged,Pass
+E1139,900,Major,None,Major,Flagged,Fail
+E2403,498,Major,Within past year,Major,None,Pass
+E188,979,None,None,Minor,None,Fail
+E3847,539,None,Within past year,Major,Flagged,Fail
+E3962,640,None,None,Major,None,Pass
+E3074,826,None,Within past year,Minor,Flagged,Pass
+E195,694,Major,Within past 1-3 years,Major,Flagged,None
+E4048,369,None,Within past 1-3 years,None,Flagged,None
+E2021,67,Minor,None,Major,None,None
