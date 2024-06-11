@@ -1,5 +1,5 @@
 import streamlit as st
-import joblib
+import pickle
 import pandas as pd
 import numpy as np
 import plotly.express as px
@@ -11,7 +11,8 @@ import seaborn as sns
 st.set_page_config(page_title='Regulatory Dashboard!',page_icon=":bar_chart:",layout='wide')
 
 #importing model
-model = joblib.load('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V2.pkl')
+model = pickle.load(open('RiskPredictor_RF_V2.pkl','rb'))
+#model = joblib.load('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V2.pkl')
 
 #Encoding Function
 def encoding(item):
