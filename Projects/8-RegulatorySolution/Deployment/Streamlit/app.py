@@ -11,7 +11,7 @@ import seaborn as sns
 st.set_page_config(page_title='Regulatory Dashboard!',page_icon=":bar_chart:",layout='wide')
 
 #importing model
-model = pickle.load(open('RiskPredictor_RF_V2.pkl','rb'))
+model = pickle.load(open('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V2.pkl','rb'))
 #model = joblib.load('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V2.pkl')
 
 #Encoding Function
