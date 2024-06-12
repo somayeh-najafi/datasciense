@@ -67,7 +67,7 @@ with col1:
       inspection_results=st.text_input("inspection_results: Pass | Fail | None")
 
       if st.button('Risk Analysis Result!'):
-        data = {'annual_clients':[clients],'infraction_type':[infraction_type],'infraction_timeline':[infraction_timeline],'public_complaints':[public_complaints],'sentiment_analysis':[sentiment_analysis],'inspection_result':[inspection_results]}
+        data = {'Annual Clients':[clients],'Infraction Type':[infraction_type],'Infraction Timeline':[infraction_timeline],'Public Complaints':[public_complaints],'Sentiment Analysis':[sentiment_analysis],'Inspection Results':[inspection_results]}
         input_data = pd.DataFrame(data)
         st.write(input_data)
         predict,probability,feature,encoded_data=risk_predict(input_data)
@@ -81,8 +81,8 @@ with col1:
      
           test_data_e=pd.read_csv(uploaded_file)
           test_data_e=test_data_e.fillna('None')
-          entities = test_data_e['entity']
-          test_data = test_data_e.drop(columns=['entity'])
+          entities = test_data_e['Entity']
+          test_data = test_data_e.drop(columns=['Entity'])
         
           # Initialize session state flag
           if 'show_feature_importance' not in st.session_state:
@@ -127,12 +127,12 @@ with col1:
                 
               #get the encoded-data to show the entity's score
               scored_data=pd.concat([entities,st.session_state.encoded_data],axis=1)
-              scored_data['score']=scored_data.iloc[:,1:].sum(axis=1)
+              scored_data['Score']=scored_data.iloc[:,1:].sum(axis=1)
 
               with col1:
                 # Fig3 ==> To Show the Distribution of Risk Score
-                fig3 = px.scatter(scored_data, x='score', title='Distribution of Risk Scores',
-                 color='score', hover_name='entity', hover_data={'entity': False, 'score': True})
+                fig3 = px.scatter(scored_data, x='Score', title='Distribution of Risk Scores',
+                 color='Score', hover_name='Entity', hover_data={'Entity': False, 'Score': True})
                 # Update layout for better visualization
                 fig3.update_layout(
                         title_x=0.25,title_font_size=24,
@@ -146,13 +146,13 @@ with col1:
 
                     
               st.sidebar.header("Choose your filter:")
-              entity_list=st.sidebar.multiselect("Select the entity",test_data_e['entity'])
+              entity_list=st.sidebar.multiselect("Select the entity",test_data_e['Entity'])
               if entity_list:
                   fig4 = go.Figure()
                   for entity in entity_list:
                       
-                      entity_data = scored_data[scored_data['entity'] == entity].squeeze()[1:]               
-                      entity_risk_level=concatenated_df[concatenated_df['entity']==entity]['Prediction'].values[0]               
+                      entity_data = scored_data[scored_data['Entity'] == entity].squeeze()[1:]               
+                      entity_risk_level=concatenated_df[concatenated_df['Entity']==entity]['Prediction'].values[0]               
                       entity_legend_name = f"{entity} (Risk: {entity_risk_level}, Score: {entity_data[-1]} )"
                       fig4.add_trace(go.Scatterpolar(r=entity_data[:-1].values,theta=entity_data[:-1].index, mode='markers',fill='toself', name=entity_legend_name, showlegend=True))
                   fig4.update_layout(title='Entities Score Values',title_x=0.35,title_font_size=24,
