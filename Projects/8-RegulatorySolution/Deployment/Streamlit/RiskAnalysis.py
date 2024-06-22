@@ -11,7 +11,7 @@ import seaborn as sns
 st.set_page_config(page_title='Regulatory Dashboard!',page_icon=":bar_chart:",layout='wide')
 
 #importing model
-model = joblib.load('RiskPredictor_RF_V3.pkl')
+model = joblib.load('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V3.pkl')
 
 #Encoding Function
 def encoding(item):
