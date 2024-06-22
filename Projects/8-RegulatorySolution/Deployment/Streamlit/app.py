@@ -54,6 +54,7 @@ st.title(":bar_chart: Regulatory Risk Analysis!")
 st.markdown('<style>div.block-container{padding-top:2rem;}</style>',unsafe_allow_html=True)
 col1,col2 = st.columns(2)
 
+
 with col1:
     #Getting data manually
     st.markdown("<h1 style='font-size:20px;'>1. Enter Data Manually</h1>", unsafe_allow_html=True)
