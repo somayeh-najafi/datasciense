@@ -1,17 +1,17 @@
 import streamlit as st
-import pickle
+import joblib
 import pandas as pd
 import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import seaborn as sns
-
+#from sklearn.preprocessing import MinMaxScaler
 
 #Streamlit Config
 st.set_page_config(page_title='Regulatory Dashboard!',page_icon=":bar_chart:",layout='wide')
 
 #importing model
-model = pickle.load(open('Projects/8-RegulatorySolution/Deployment/Streamlit/model/RiskPredictor_RF_V3.pkl','rb'))
+model = joblib.load('RiskPredictor_RF_V3.pkl')
 
 #Encoding Function
 def encoding(item):
@@ -45,7 +45,7 @@ def risk_predict(input_data):
 
     feauters=model.feature_importances_
     feature_impo = pd.Series(feauters, index=cols)
-    
+
     feature_impo = feature_impo.sort_values(ascending=False)
     return prediction,pb_array,feature_impo,encoded_data
 
@@ -78,12 +78,12 @@ with col1:
     st.markdown("<h1 style='font-size:20px;'>2. Load the test dataset</h1>", unsafe_allow_html=True)
     uploaded_file = st.file_uploader("")
     if uploaded_file is not None:
-     
+
           test_data_e=pd.read_csv(uploaded_file)
           test_data_e=test_data_e.fillna('None')
           entities = test_data_e['Entity']
           test_data = test_data_e.drop(columns=['Entity'])
-        
+
           # Initialize session state flag
           if 'show_feature_importance' not in st.session_state:
               st.session_state.show_feature_importance = None
@@ -92,13 +92,13 @@ with col1:
           if 'probability' not in st.session_state:
               st.session_state.probability = None  # This will store the probability results
           if 'encoded_data' not in st.session_state:
-              st.session_state.encoded_data = None    
-          
+              st.session_state.encoded_data = None
+
 
           # Button to predict the risk
           if st.button('Predict the Risk!'):
-              st.session_state.predictions,st.session_state.probability,st.session_state.show_feature_importance,st.session_state.encoded_data = risk_predict(test_data)  
-       
+              st.session_state.predictions,st.session_state.probability,st.session_state.show_feature_importance,st.session_state.encoded_data = risk_predict(test_data)
+
 
           # Display predictions if available
           if st.session_state.predictions is not None:
@@ -107,8 +107,8 @@ with col1:
               concatenated_df = pd.concat([entities,st.session_state.probability,st.session_state.predictions],axis=1)
               with st.expander("Risk Prediction & Probability:"):
                 st.write(concatenated_df)
-            
-              
+
+
               with col2:
                 #Fig1 ==> Feature importance
                 fig1 = px.bar(x=st.session_state.show_feature_importance.index,y=st.session_state.show_feature_importance.values)
@@ -124,7 +124,7 @@ with col1:
                 fig2.update_traces(text=concatenated_df['Prediction'].value_counts().values, textposition="outside")
                 fig2.update_layout(width=800, height=500,title="Prediction Result",title_x=0.35,title_font_size=24,xaxis=dict(tickfont=dict(size=14),title=dict(text="")),yaxis=dict(title=dict(text="")))
                 st.plotly_chart(fig2,use_container_width=True)
-                
+
               #get the encoded-data to show the entity's score
               scored_data=pd.concat([entities,st.session_state.encoded_data],axis=1)
               scored_data['Score']=scored_data.iloc[:,1:].sum(axis=1)
@@ -135,24 +135,24 @@ with col1:
                  color='Score', hover_name='Entity', hover_data={'Entity': False, 'Score': True})
                 # Update layout for better visualization
                 fig3.update_layout(
-                        title_x=0.25,title_font_size=24,
+                        title_x=0.35,title_font_size=24,
                         xaxis_title='Risk Score',
                         width=800,
                         height=500,
                         yaxis=dict(showticklabels=False,tickvals=[], ticktext=[],title=''),
-                        xaxis=dict(tickfont=dict(size=14))  
-                    )   
-                st.plotly_chart(fig3)     
+                        xaxis=dict(tickfont=dict(size=14))
+                    )
+                st.plotly_chart(fig3)
 
-                    
+
               st.sidebar.header("Choose your filter:")
               entity_list=st.sidebar.multiselect("Select the entity",test_data_e['Entity'])
               if entity_list:
                   fig4 = go.Figure()
                   for entity in entity_list:
-                      
-                      entity_data = scored_data[scored_data['Entity'] == entity].squeeze()[1:]               
-                      entity_risk_level=concatenated_df[concatenated_df['Entity']==entity]['Prediction'].values[0]               
+
+                      entity_data = scored_data[scored_data['Entity'] == entity].squeeze()[1:]
+                      entity_risk_level=concatenated_df[concatenated_df['Entity']==entity]['Prediction'].values[0]
                       entity_legend_name = f"{entity} (Risk: {entity_risk_level}, Score: {entity_data[-1]} )"
                       fig4.add_trace(go.Scatterpolar(r=entity_data[:-1].values,theta=entity_data[:-1].index, mode='markers',fill='toself', name=entity_legend_name, showlegend=True))
                   fig4.update_layout(title='Entities Score Values',title_x=0.35,title_font_size=24,
@@ -162,12 +162,12 @@ with col1:
                   width=800, height=600,
                   margin=dict(l=110,r=110),
                   legend=dict(font=dict(size=18),orientation='h'))
-                  fig4.update_yaxes(tickformat='d', dtick=1) 
-                  fig4.update_xaxes(tickfont=dict(size=16))  
+                  fig4.update_yaxes(tickformat='d', dtick=1)
+                  fig4.update_xaxes(tickfont=dict(size=16))
                   st.plotly_chart(fig4)
-                
-              
-                  
+
+
+
     else:
         st.write("Please upload a CSV file.")
-   
+
