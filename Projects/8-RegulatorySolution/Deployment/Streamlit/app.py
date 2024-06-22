@@ -5,7 +5,6 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import seaborn as sns
-from streamlit_option_menu import option_menu
 
 
 #Streamlit Config
@@ -54,16 +53,6 @@ def risk_predict(input_data):
 st.title(":bar_chart: Regulatory Risk Analysis!")
 st.markdown('<style>div.block-container{padding-top:2rem;}</style>',unsafe_allow_html=True)
 col1,col2 = st.columns(2)
-
-# Sidebar menu
-with st.sidebar:
-    selected = option_menu(
-        "Main Menu",
-        ["Risk Analysis", "Sentiment Analysis"],
-        icons=["bar-chart", "🤩😡😶"],
-        menu_icon="cast",
-        default_index=0,
-    )
 
 with col1:
     #Getting data manually
