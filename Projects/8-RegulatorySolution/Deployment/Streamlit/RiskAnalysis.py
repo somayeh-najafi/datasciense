@@ -77,8 +77,8 @@ with col1:
     #Getting test dataset
     st.markdown("<h1 style='font-size:20px;'>2. Load the test dataset</h1>", unsafe_allow_html=True)
     #uploaded_file = st.file_uploader("")
-    uploaded_file = pd.read_csv('Projects/8-RegulatorySolution/Deployment/Streamlit/Test_Dataset_E100.csv')
-    uploaded_file=uploaded_file.fillna('None')
+    uploaded_file = 'Projects/8-RegulatorySolution/Deployment/Streamlit/Test_Dataset_E100.csv'
+
     if uploaded_file is not None:
 
           test_data_e=pd.read_csv(uploaded_file)
