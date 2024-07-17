@@ -8,3 +8,4 @@ This repository contains all the data projects I have worked.
 7. Meta Stock (ML) (K-Means, PCA)
 8. Regulatory Solution (Complete Modeling + Deployment)
 9. Image Classification Using Convolutional Neural Network (CNN)
+10. Handwritten digits classification using (CNN)
