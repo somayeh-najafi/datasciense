@@ -9,3 +9,5 @@ This repository contains all the data projects I have worked.
 8. Regulatory Solution (Complete Modeling + Deployment)
 9. Image Classification Using Convolutional Neural Network (CNN)
 10. Handwritten digits classification using (CNN)
+11. EasyOCR-PyTorch Text Detection (OCR)
+12. Contour Detection - Threshold & Edge Detection (OpenCV)
