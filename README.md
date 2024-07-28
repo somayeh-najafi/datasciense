@@ -11,3 +11,5 @@ This repository contains all the data projects I have worked.
 10. Handwritten digits classification using (CNN)
 11. EasyOCR-PyTorch Text Detection (OCR)
 12. Contour Detection - Threshold & Edge Detection (OpenCV)
+13. Open Image Dataset Downloader (Image+Label)
+14. Yolov8-object Detection (Computer Vision-Object Detection)
