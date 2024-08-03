@@ -1,9 +1,0 @@
-path: '/content/gdrive/MyDrive/DS-Projects/YoloV8_ObjectDetection/fruits/Dataset' #main dir
-train: images/train
-val: images/val #relative path to main dir
-
-#classes
-
-names:
-  0: Apple
-  1: Banana

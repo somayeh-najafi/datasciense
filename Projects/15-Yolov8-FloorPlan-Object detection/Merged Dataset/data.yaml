@@ -1,0 +1,10 @@
+names:
+- door
+- window
+- wall
+- stair 
+nc: 4
+
+test: test/images
+train: train/images
+val: valid/images
